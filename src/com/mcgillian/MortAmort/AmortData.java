@@ -1,3 +1,5 @@
+// Copyright 20202 Shane McGillian, all rights reserved.
+// The code is currently not open source, however, this is subject to change with a future upload.
 package com.mcgillian.MortAmort;
 
 // Data for Amortization Schedule
