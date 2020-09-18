@@ -29,7 +29,7 @@ public class MortAmort {
 
         // Beging main logic
         System.out.println("");
-        System.out.println("Mortguage Calculator");
+        System.out.println("Mortgage Calculator");
         System.out.println("--------------------");
         System.out.println("");
 
