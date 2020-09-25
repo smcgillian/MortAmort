@@ -23,7 +23,7 @@ class MortCalc {
 
     public void Calculate(){
         calculateMonthlyPayment();
-        AmortizationScheduleDouble();
+        AmortizationSchedule();
     }
 
     //Public Methods
@@ -72,7 +72,8 @@ class MortCalc {
         return;
     }
 
-    public void AmortizationScheduleDouble(){
+
+    public void AmortizationSchedule(){
         // Make sure the payments are calculated
         if (!m_bPaymentsCalculated) {
             calculateMonthlyPayment();
@@ -99,7 +100,7 @@ class MortCalc {
                 adTemp.m_iPeriodPayment = m_iMonthlyPayment;
 
                 // First work out the interest for the period and running total: Opening Balance * Monthly Interest Rate
-                     adTemp.m_iPeriodInterest = (int) Math.round((adTemp.m_iStartingBalance * getMonthlyInterestRate()));
+                adTemp.m_iPeriodInterest = (int) Math.round((adTemp.m_iStartingBalance * getMonthlyInterestRate()));
 
                 adTemp.m_iRunningTotalInterest = adTemp.m_iRunningTotalInterest + adTemp.m_iPeriodInterest;
 
@@ -114,13 +115,12 @@ class MortCalc {
                 adTemp.m_iBalance = adTemp.m_iBalance - adTemp.m_iPrinciplePayment;
             }
             else{ // Balance is less than full payment, so work out final payment.
-                // First 33work out the interest for the period and running total.
+                // First work out the interest for the period and running total.
                 // This is the final payment so interest can't be carried over to the next period
                 // and is added to this period.
-                // Final payment will be different than usual.
+                // Final payment may be different than usual.
                 // Opening Balance * Monthly Interest Rate
                 adTemp.m_iPeriodInterest = (int) Math.round((adTemp.m_iStartingBalance * getMonthlyInterestRate()));
-
                 adTemp.m_iRunningTotalInterest = adTemp.m_iRunningTotalInterest + adTemp.m_iPeriodInterest;
 
                 // Next work out the principle portion of the payment and running totals
@@ -199,15 +199,9 @@ class MortCalc {
         else return "0.00";
     }
 
-    /*public List<AmortData> GetAmorterizationData(){
-        return m_amortSchedule;
-    }*/
-
     public AmortData GetPeriod(int iPeriod){
         return m_amortSchedule.get(iPeriod);
     }
-
-
 
 //Private Methods
 
