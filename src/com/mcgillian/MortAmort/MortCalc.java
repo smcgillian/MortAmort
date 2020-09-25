@@ -10,7 +10,6 @@ package com.mcgillian.MortAmort;
 // Imports section
 import java.util.List;
 import java.util.ArrayList;
-//import java.io.Console;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
